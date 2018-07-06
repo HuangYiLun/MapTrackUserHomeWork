@@ -1,24 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Run Keeper View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="map" id="BYZ-38-t0r" customClass="RunKeeperViewController" customModule="MapTrackUserHomeWork" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="plo-ue-523">
+                                <rect key="frame" x="0.0" y="-12" width="375" height="573"/>
+                            </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-ND-Amw">
+                                <rect key="frame" x="16" y="62" width="215" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fdu-iS-JQo">
+                                <rect key="frame" x="297" y="583" width="62" height="30"/>
+                                <state key="normal" title="清除路徑"/>
+                                <connections>
+                                    <action selector="RemoveRoute:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ROk-bt-ICF"/>
+                                </connections>
+                            </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="yvU-XH-O54">
+                                <rect key="frame" x="59" y="583" width="51" height="31"/>
+                                <connections>
+                                    <action selector="ReportLocationUISwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="6K4-wW-mo4"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="回報" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IsR-0e-qpz">
+                                <rect key="frame" x="16" y="585" width="35" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="紀錄路徑" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSU-o1-q4Z">
+                                <rect key="frame" x="135" y="583" width="70" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hNn-zp-FDk">
+                                <rect key="frame" x="213" y="583" width="51" height="31"/>
+                                <connections>
+                                    <action selector="RecordRoute:" destination="BYZ-38-t0r" eventType="valueChanged" id="JLB-CD-Lrh"/>
+                                </connections>
+                            </switch>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ype-J7-gHh">
+                                <rect key="frame" x="0.0" y="5" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="朋友名單" id="coG-x8-prA">
+                                        <connections>
+                                            <action selector="openFriendsLocationList:" destination="BYZ-38-t0r" id="9VQ-Df-WDv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="v4B-Yd-TTr">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="LRX-fI-qkL">
+                                            <rect key="frame" x="96.5" y="7.5" width="125" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="標準"/>
+                                                <segment title="衛星"/>
+                                                <segment title="混合"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="mapTypeChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="iMI-J0-1sZ"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVo-b0-Z8h">
+                                <rect key="frame" x="16" y="91" width="215" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="yvU-XH-O54" secondAttribute="bottom" constant="9" id="5xR-K6-Oca"/>
+                            <constraint firstItem="hNn-zp-FDk" firstAttribute="top" secondItem="plo-ue-523" secondAttribute="bottom" constant="10" id="66a-8f-dMQ"/>
+                            <constraint firstItem="plo-ue-523" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EbN-Jb-i1G"/>
+                            <constraint firstItem="Ype-J7-gHh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Fci-0A-Ymb"/>
+                            <constraint firstItem="CSU-o1-q4Z" firstAttribute="top" secondItem="plo-ue-523" secondAttribute="bottom" constant="10" id="MBL-Mt-8mE"/>
+                            <constraint firstItem="CSU-o1-q4Z" firstAttribute="leading" secondItem="yvU-XH-O54" secondAttribute="trailing" constant="27" id="N6S-Cn-1uh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fdu-iS-JQo" secondAttribute="bottom" constant="10" id="QH1-0Y-OMP"/>
+                            <constraint firstItem="Ype-J7-gHh" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="5" id="S1p-2Q-yTG"/>
+                            <constraint firstItem="plo-ue-523" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="XTd-Us-62C"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fdu-iS-JQo" secondAttribute="trailing" constant="16" id="YCL-DA-f9L"/>
+                            <constraint firstItem="yvU-XH-O54" firstAttribute="top" secondItem="plo-ue-523" secondAttribute="bottom" constant="10" id="Zpq-fh-r9d"/>
+                            <constraint firstItem="yvU-XH-O54" firstAttribute="leading" secondItem="IsR-0e-qpz" secondAttribute="trailing" constant="8" id="abB-lW-usR"/>
+                            <constraint firstItem="plo-ue-523" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b0a-9Q-TdW"/>
+                            <constraint firstItem="Ype-J7-gHh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="brx-E9-oYa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CSU-o1-q4Z" secondAttribute="bottom" constant="14" id="c81-X3-0dT"/>
+                            <constraint firstItem="fdu-iS-JQo" firstAttribute="leading" secondItem="hNn-zp-FDk" secondAttribute="trailing" constant="35" id="eAI-Ww-zSw"/>
+                            <constraint firstItem="hNn-zp-FDk" firstAttribute="leading" secondItem="CSU-o1-q4Z" secondAttribute="trailing" constant="8" id="fGS-XX-Xkf"/>
+                            <constraint firstItem="IsR-0e-qpz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iL5-vh-SNo"/>
+                            <constraint firstItem="IsR-0e-qpz" firstAttribute="top" secondItem="plo-ue-523" secondAttribute="bottom" constant="12" id="ke4-zn-gZV"/>
+                            <constraint firstItem="fdu-iS-JQo" firstAttribute="top" secondItem="plo-ue-523" secondAttribute="bottom" constant="10" id="n3C-Ui-omO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="IsR-0e-qpz" secondAttribute="bottom" constant="15" id="uDb-Hx-XJA"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="8jG-ND-Amw" id="mOg-OQ-VCb"/>
+                        <outlet property="mainMapView" destination="plo-ue-523" id="YE7-9w-wWR"/>
+                        <outlet property="recordRouteSwitchButton" destination="hNn-zp-FDk" id="C9X-t9-3Mq"/>
+                        <outlet property="removeRouteButton" destination="fdu-iS-JQo" id="H32-bN-UCl"/>
+                        <outlet property="timeLabel" destination="GVo-b0-Z8h" id="FzG-qe-PqU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2015.2" y="132.68365817091455"/>
         </scene>
     </scenes>
 </document>
